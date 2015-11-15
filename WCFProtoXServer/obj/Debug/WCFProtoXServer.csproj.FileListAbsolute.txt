@@ -1,0 +1,31 @@
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\bin\Debug\WCFProtoXServer.exe.config
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\obj\Debug\WCFProtoXServer.csprojResolveAssemblyReference.cache
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\obj\Debug\WCFProtoXServer.Form1.resources
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\obj\Debug\WCFProtoXServer.Properties.Resources.resources
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\obj\Debug\WCFProtoXServer.csproj.GenerateResource.Cache
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\bin\Debug\WCFProtoXServer.exe
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\bin\Debug\WCFProtoXServer.pdb
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\obj\Debug\WCFProtoXServer.exe
+c:\users\bubu kirichenko\documents\visual studio 2015\Projects\WCFProtoXServer\WCFProtoXServer\obj\Debug\WCFProtoXServer.pdb
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\bin\Debug\WCFProtoXServer.exe.config
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\obj\Debug\WCFProtoXServer.exe
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\obj\Debug\WCFProtoXServer.pdb
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\obj\Debug\WCFProtoXServer.csprojResolveAssemblyReference.cache
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\obj\Debug\WCFProtoXServer.csproj.GenerateResource.Cache
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\obj\Debug\KynetServer.Properties.Resources.resources
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\bin\Debug\WCFProtoXServer.exe
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\bin\Debug\WCFProtoXServer.pdb
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\bin\Debug\CoreClassLib.dll
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\bin\Debug\CoreClassLib.pdb
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\WCFProtoXServer\obj\Debug\KynetServer.Form1.resources
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.exe.config
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.exe
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.pdb
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\CoreClassLib.dll
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\CoreClassLib.pdb
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\WCFProtoXServer.csprojResolveAssemblyReference.cache
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.Form1.resources
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.Properties.Resources.resources
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\WCFProtoXServer.csproj.GenerateResource.Cache
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.exe
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.pdb

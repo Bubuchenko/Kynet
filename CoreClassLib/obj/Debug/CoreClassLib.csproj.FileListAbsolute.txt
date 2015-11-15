@@ -1,0 +1,5 @@
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\CoreClassLib\obj\Debug\CoreClassLib.csprojResolveAssemblyReference.cache
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\CoreClassLib\bin\Debug\CoreClassLib.dll
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\CoreClassLib\bin\Debug\CoreClassLib.pdb
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\CoreClassLib\obj\Debug\CoreClassLib.dll
+C:\Users\Bubu Kirichenko\Documents\GitHub\KynetXProto\CoreClassLib\obj\Debug\CoreClassLib.pdb

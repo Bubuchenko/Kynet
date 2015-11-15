@@ -1,0 +1,3 @@
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.exe.config
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.exe
+C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.pdb
