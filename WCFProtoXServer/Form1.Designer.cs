@@ -104,6 +104,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(211, 41);
             this.textBox3.TabIndex = 6;
+            this.textBox3.Text = "C:\\Users\\Zutto Rei\\Pictures\\LongHardChuckwalla.gif";
             // 
             // button3
             // 

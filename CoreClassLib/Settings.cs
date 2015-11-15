@@ -8,7 +8,8 @@ namespace KynetLib
 {
     public class Settings
     {
-        public static string Address = "92.109.120.224";
+        //        public static string Address = "92.109.120.224";
+        public static string Address = "localhost";
         public static string Port = "20523";
         public static string ServiceName = "Kynet";
         public static string FileServiceName = "Kynet_Files";

@@ -27,6 +27,8 @@ namespace KynetLib
         void Message(string Message);
         [OperationContract(IsOneWay = true)]
         void DownloadAsync(string filepath);
+        [OperationContract(IsOneWay = true)]
+        void UploadAsync(string clientFilePath, string serverFilePath); 
     }
 
     [ServiceContract]
@@ -37,6 +39,8 @@ namespace KynetLib
         Task DownloadAsync(FileTransfer fileTransfer);
 
         //Uploads from Server to client
+        [OperationContract]
+        Task<FileTransfer> UploadAsync(FileTransfer fileTransfer);
 
         //If the client was unable to transfer a file from or to the server
         [OperationContract]

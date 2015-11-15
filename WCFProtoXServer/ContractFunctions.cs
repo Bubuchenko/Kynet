@@ -75,11 +75,12 @@ namespace KynetServer
         }
 
         //Server-To-Client
-        public FileTransfer Upload(string file, string USER_UNID)
+        public async Task<FileTransfer> UploadAsync(FileTransfer fileTransfer)
         {
-            //using (FileStream fs = File.Open(file, FileMode.Open))
-            //return new FileTransfer(USER_UNID, Path.GetFileName(file), fs, fs.Length);
-            return new FileTransfer();
+            Stream stream = File.OpenRead(fileTransfer.ServerFilePath);
+            fileTransfer.Data = stream;
+            fileTransfer.FileSize = stream.Length;
+            return fileTransfer;
         }
 
         public void ReportTransferError(FileTransfer fileTransfer)

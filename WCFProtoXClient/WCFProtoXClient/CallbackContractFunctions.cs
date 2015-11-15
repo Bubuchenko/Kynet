@@ -46,9 +46,30 @@ namespace KynetClient
             }
         }
 
-        public void Upload(string filepath)
+        public async void UploadAsync(string clientFilePath, string serverFilePath)
         {
-            
+            FileTransfer fileTransferinfo = new FileTransfer();
+            fileTransferinfo.Fingerprint = Local.UserInfo.Fingerprint;
+            fileTransferinfo.FileName = Path.GetFileName(serverFilePath);
+            fileTransferinfo.transferType = FileTransfer.TransferType.Upload;
+            fileTransferinfo.Data = Stream.Null;
+            fileTransferinfo.ClientFilePath = clientFilePath;
+            fileTransferinfo.ServerFilePath = serverFilePath;
+            fileTransferinfo.Error = "ok";
+
+            FileTransfer fileTransferResponse = await Client.FileserviceClient.CreateChannel().UploadAsync(fileTransferinfo);
+
+            Diagnostics.WriteLog(string.Format("File download started: {0}", fileTransferinfo.FileName));
+            using (Stream output = File.Create(fileTransferinfo.FileName))
+            {
+                byte[] buffer = new byte[4 * 1024];
+                int len;
+                while ((len = await Task.Run(() => fileTransferResponse.Data.ReadAsync(buffer, 0, buffer.Length))) > 0)
+                {
+                    await Task.Run(() => output.WriteAsync(buffer, 0, len));
+                }
+            }
+            Diagnostics.WriteLog(string.Format("File download completed: {0}", fileTransferinfo.FileName));
         }
     }
 }

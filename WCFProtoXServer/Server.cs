@@ -8,7 +8,7 @@ using KynetLib;
 
 namespace KynetServer
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Multiple)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Multiple, IncludeExceptionDetailInFaults = true)]
     class Server : ContractFunctions
     {
         public static List<UserClient> ConnectedClients = new List<UserClient>();

@@ -50,7 +50,8 @@ namespace KynetServer
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
+            ServerToClientFunctions.DownloadToClient(client.Fingerprint, "", textBox3.Text);
         }
     }
 }

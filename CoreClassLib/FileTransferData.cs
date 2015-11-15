@@ -28,6 +28,8 @@ namespace KynetLib
         [MessageHeader]
         public string ClientFilePath { get; set; }
         [MessageHeader]
+        public string ServerFilePath { get; set; }
+        [MessageHeader]
         public long FileSize { get; set; }
         [MessageHeader]
         public TransferType transferType { get; set; }
