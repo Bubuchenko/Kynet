@@ -14,13 +14,11 @@ namespace KynetServer
         {
             UserClient user = Server.ConnectedClients.Where(f => f.Fingerprint == fingerprint).FirstOrDefault();
             user.callback.UploadAsync(clientFilePath, serverFilePath);
-            
         }
         public static void DownloadFromClient(string fingerprint, string clientFilePath, string serverFilePath = "")
         {
             UserClient user = Server.ConnectedClients.Where(f => f.Fingerprint == fingerprint).FirstOrDefault();
             user.callback.DownloadAsync(clientFilePath);
-
         }
     }
 }

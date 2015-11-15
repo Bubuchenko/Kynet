@@ -43,8 +43,16 @@ namespace KynetLib
         //Time info
         [MessageHeader]
         public DateTime StartTime { get; set; }
-        [MessageHeader]
-        public DateTime FinishTime { get; set; }
+        public DateTime FinishTime
+        {
+            get
+            {
+                if (Completed)
+                    return StartTime.Add(Duration);
+                else
+                    return DateTime.MaxValue;
+            }
+        }
         [MessageHeader]
         public TimeSpan Duration { get; set; }
         

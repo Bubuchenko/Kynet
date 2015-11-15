@@ -69,7 +69,7 @@ namespace KynetServer
             }
             catch (Exception ex)
             {
-                Diagnostics.WriteLog("File transfer complete!");
+                Diagnostics.WriteLog("File transfer failed!");
                 filetransfer.Error = ex.Message;
             }
         }
@@ -77,10 +77,22 @@ namespace KynetServer
         //Server-To-Client
         public async Task<FileTransfer> UploadAsync(FileTransfer fileTransfer)
         {
-            Stream stream = File.OpenRead(fileTransfer.ServerFilePath);
-            fileTransfer.Data = stream;
-            fileTransfer.FileSize = stream.Length;
-            return fileTransfer;
+            Stream stream = Stream.Null;
+            try
+            {
+                Diagnostics.WriteLog("File Transfer initiated");
+                Server.FileTransfers.Add(fileTransfer);
+                stream = File.OpenRead(fileTransfer.ServerFilePath);
+                fileTransfer.Data = stream;
+                fileTransfer.FileSize = stream.Length;
+                return fileTransfer;
+            }
+            catch (Exception ex)
+            {
+                Diagnostics.WriteLog("File transfer failed");
+                fileTransfer.Error = ex.Message; //cuz why is it empty if its doing this D8
+                return fileTransfer;
+            }
         }
 
         public void ReportTransferError(FileTransfer fileTransfer)
