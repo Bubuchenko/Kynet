@@ -8,3 +8,8 @@ C:\Users\Zutto Rei\Documents\GitHub\Kynet\CoreClassLib\bin\Debug\CoreClassLib.pd
 C:\Users\Zutto Rei\Documents\GitHub\Kynet\CoreClassLib\obj\Debug\CoreClassLib.csprojResolveAssemblyReference.cache
 C:\Users\Zutto Rei\Documents\GitHub\Kynet\CoreClassLib\obj\Debug\CoreClassLib.dll
 C:\Users\Zutto Rei\Documents\GitHub\Kynet\CoreClassLib\obj\Debug\CoreClassLib.pdb
+C:\Users\Bubuchenko\Documents\GitHub\kynet\CoreClassLib\bin\Debug\CoreClassLib.dll
+C:\Users\Bubuchenko\Documents\GitHub\kynet\CoreClassLib\bin\Debug\CoreClassLib.pdb
+C:\Users\Bubuchenko\Documents\GitHub\kynet\CoreClassLib\obj\Debug\CoreClassLib.csprojResolveAssemblyReference.cache
+C:\Users\Bubuchenko\Documents\GitHub\kynet\CoreClassLib\obj\Debug\CoreClassLib.dll
+C:\Users\Bubuchenko\Documents\GitHub\kynet\CoreClassLib\obj\Debug\CoreClassLib.pdb
