@@ -20,16 +20,12 @@ namespace KynetServer
 
         public Server()
         {
-            NetTcpBinding tcpbinding = new NetTcpBinding(SecurityMode.None);
-
+            NetTcpBinding clientTcpBinding = new NetTcpBinding(SecurityMode.None);
             NetTcpBinding fileTcpbinding = new NetTcpBinding(SecurityMode.None);
-            fileTcpbinding.TransferMode = TransferMode.Streamed;
-            fileTcpbinding.MaxBufferSize = Settings.MaxBufferSize;
-            fileTcpbinding.MaxReceivedMessageSize = Settings.MaxReceivedMessageSize;
-            fileTcpbinding.SendTimeout = Settings.SendTimeout;
+            Settings.SetConfigs(fileTcpbinding, clientTcpBinding);
 
             serviceHost.AddServiceEndpoint(typeof(IFileTransferContract), fileTcpbinding, Settings.FileServiceName);
-            serviceHost.AddServiceEndpoint(typeof(IContract), tcpbinding, Settings.ServiceName);
+            serviceHost.AddServiceEndpoint(typeof(IContract), clientTcpBinding, Settings.ServiceName);
         }
         
 

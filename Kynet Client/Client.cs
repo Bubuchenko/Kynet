@@ -19,20 +19,19 @@ namespace KynetClient
         {
             try
             {
+                NetTcpBinding clientTcpBinding = new NetTcpBinding(SecurityMode.None);
+                NetTcpBinding fileTcpbinding = new NetTcpBinding(SecurityMode.None);
+                Settings.SetConfigs(fileTcpbinding, clientTcpBinding);
+
                 serviceClient = new DuplexChannelFactory<IContract>(
                    new InstanceContext(this),
-                   new NetTcpBinding(SecurityMode.None),
+                   clientTcpBinding,
                    new EndpointAddress(string.Format("net.tcp://{0}:{1}/{2}", Settings.Address, Settings.Port, Settings.ServiceName)));
 
-                NetTcpBinding fileTcp = new NetTcpBinding(SecurityMode.None);
-                fileTcp.TransferMode = TransferMode.Streamed;
-                fileTcp.MaxBufferSize = Settings.MaxBufferSize;
-                fileTcp.MaxReceivedMessageSize = Settings.MaxReceivedMessageSize;
-                fileTcp.ReceiveTimeout = Settings.ReceiveTimeout;
-                fileTcp.SendTimeout = Settings.SendTimeout;
+               
 
                 FileserviceClient = new ChannelFactory<IFileTransferContract>(
-                   fileTcp,
+                   fileTcpbinding,
                    new EndpointAddress(string.Format("net.tcp://{0}:{1}/{2}", Settings.Address, Settings.Port, Settings.FileServiceName)));
             }
             catch(Exception ex)

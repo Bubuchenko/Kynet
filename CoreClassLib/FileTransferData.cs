@@ -61,7 +61,10 @@ namespace KynetLib
         {
             get
             {
-                return Data.Position;
+                if (Data.CanRead)
+                    return Data.Position;
+                else
+                    return -1;
             }
         }
         public string FileExtension
