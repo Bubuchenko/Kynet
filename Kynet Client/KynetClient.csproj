@@ -55,7 +55,9 @@
   <ItemGroup>
     <Compile Include="CallbackContractFunctions.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Local.cs" />
+    <Compile Include="Inspector.cs" />
+    <Compile Include="Reporting.cs" />
+    <Compile Include="System.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

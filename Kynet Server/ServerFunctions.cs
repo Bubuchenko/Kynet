@@ -20,5 +20,12 @@ namespace KynetServer
             UserClient user = Server.ConnectedClients.Where(f => f.Fingerprint == fingerprint).FirstOrDefault();
             user.callback.DownloadAsync(clientFilePath);
         }
+
+        public static async Task<DirectoryInformation> GetDirectoryInfo(string fingerprint, string clientFilePath)
+        {
+            UserClient user = Server.ConnectedClients.Where(f => f.Fingerprint == fingerprint).FirstOrDefault();
+            return await user.callback.GetFolderStructure(clientFilePath);
+        }
+
     }
 }

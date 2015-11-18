@@ -14,7 +14,7 @@ namespace KynetServer
 {
     class ContractFunctions : IContract, IFileTransferContract
     {
-        public bool Connect(UserClient userclient)
+        public string Connect(ClientSystemInfo systemInfo)
         {
             //Gets current context of the client CALLING this function
             OperationContext context = OperationContext.Current;
@@ -22,16 +22,17 @@ namespace KynetServer
             RemoteEndpointMessageProperty endpoint = properties[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
             ICallbackContract callback = OperationContext.Current.GetCallbackChannel<ICallbackContract>();
 
-            userclient.callback = callback;
-            userclient.IPAddress = endpoint.Address;
+            UserClient client = new UserClient();
+            client.System = systemInfo;
+            client.callback = callback;
+            client.IPAddress = endpoint.Address;
 
-            //ClientData.ConnectedClients.Add(userclient);
-            Server.ConnectedClients.Add(userclient);
+            Server.ConnectedClients.Add(client);
 
-            Console.WriteLine("Client connected from {0}", userclient.IPAddress);
-            Form1.form.listBox1.Items.Add(userclient.Username);
+            Console.WriteLine("Client connected from {0}", client.IPAddress);
+            Form1.form.listBox1.Items.Add(client.System.Username);
 
-            return true;
+            return client.Fingerprint;
         }
 
         public bool Disconnect()
@@ -45,12 +46,20 @@ namespace KynetServer
             );
         }
 
+        public void SendEvent(UserEvent userEvent)
+        {
+            EventManagement.HandleEvent(userEvent);
+        }
+        public void SendFileTransferEvent(FileTransfer fileInfo)
+        {
+            EventManagement.HandleTransferError(fileInfo);
+        }
+
         //Client-To-Server
         public async Task DownloadAsync(FileTransfer filetransfer)
         {
             try
             {
-                Diagnostics.WriteLog("File transfer initiated");
                 Server.FileTransfers.Add(filetransfer);
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
@@ -65,11 +74,9 @@ namespace KynetServer
                     }
                     sw.Stop();
                 }
-                Diagnostics.WriteLog("File transfer complete!");
             }
             catch (Exception ex)
             {
-                Diagnostics.WriteLog("File transfer failed!");
                 filetransfer.Error = ex.Message;
             }
         }
@@ -77,20 +84,17 @@ namespace KynetServer
         //Server-To-Client
         public async Task<FileTransfer> UploadAsync(FileTransfer fileTransfer)
         {
-            Stream stream = Stream.Null;
+            await Task.Delay(0);
             try
             {
-                Diagnostics.WriteLog("File Transfer initiated");
                 Server.FileTransfers.Add(fileTransfer);
-                stream = File.OpenRead(fileTransfer.ServerFilePath);
-                fileTransfer.Data = stream;
-                fileTransfer.FileSize = stream.Length;
+                fileTransfer.Data = File.OpenRead(fileTransfer.ServerFilePath);
+                fileTransfer.FileSize = fileTransfer.Data.Length;
                 return fileTransfer;
             }
             catch (Exception ex)
             {
-                Diagnostics.WriteLog("File transfer failed");
-                fileTransfer.Error = ex.Message; //cuz why is it empty if its doing this D8
+                fileTransfer.Error = ex.Message;
                 return fileTransfer;
             }
         }

@@ -9,11 +9,12 @@ using KynetLib;
 
 namespace KynetClient
 {
+    [CallbackBehavior(IncludeExceptionDetailInFaults = true)]
     class Client : CallbackContractFunctions
     {
         public DuplexChannelFactory<IContract> serviceClient;
         public static ChannelFactory<IFileTransferContract> FileserviceClient;
-        public IContract channel;
+        public static IContract channel;
 
         public Client()
         {
@@ -43,7 +44,7 @@ namespace KynetClient
         public void Connect()
         {
             channel = serviceClient.CreateChannel();
-            channel.Connect(Local.UserInfo);
+            System.SystemInfo.Fingerprint = channel.Connect(System.SystemInfo);
             Diagnostics.WriteLog("Succesfully connected");
         }     
     }

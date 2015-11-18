@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace KynetServer
 {
@@ -52,6 +53,49 @@ namespace KynetServer
         {
             UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
             ServerToClientFunctions.DownloadToClient(client.Fingerprint, "", textBox3.Text);
+        }
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
+            DirectoryInformation dir = await Task.Run(() => ServerToClientFunctions.GetDirectoryInfo(client.Fingerprint, textBox4.Text));
+
+            dataGridView2.Rows.Clear();
+
+            //add folders
+            if (dir.Folders != null)
+            {
+                foreach (string folder in dir.Folders)
+                {
+                    dataGridView2.Rows.Add(new DirectoryInfo(folder).Name, "Folder");
+                }
+            }
+            if (dir.Files != null)
+            {
+                foreach (FileData file in dir.Files)
+                {
+                    dataGridView2.Rows.Add(file.Filename, "File", file.Filesize / 1024f, file.FileType);
+                }
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
+            client.Events.RaiseListChangedEvents = true;
+            client.Events.ListChanged += (EventReceived);
+        }
+
+        private void EventReceived(object sender, ListChangedEventArgs e)
+        {
+            UserClient user = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
+
+            Diagnostics.WriteLog(user.Events[e.NewIndex].Message);
+
+            if (user.Events[e.NewIndex].ExceptionMessage != "")
+            {
+                Diagnostics.WriteLog(Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault().Events[e.NewIndex].ExceptionMessage);
+            }
         }
     }
 }

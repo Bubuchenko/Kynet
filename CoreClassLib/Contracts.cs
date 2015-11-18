@@ -12,12 +12,15 @@ namespace KynetLib
     public interface IContract
     {
         [OperationContract]
-        bool Connect(UserClient userclient);
+        string Connect(ClientSystemInfo userclient);
         [OperationContract]
         bool Disconnect();
         [OperationContract]
         void Message(string message);
-
+        [OperationContract]
+        void SendEvent(UserEvent userEvent);
+        [OperationContract]
+        void SendFileTransferEvent(FileTransfer fileInfo);
     }
 
     [ServiceContract]
@@ -28,7 +31,20 @@ namespace KynetLib
         [OperationContract(IsOneWay = true)]
         void DownloadAsync(string filepath);
         [OperationContract(IsOneWay = true)]
-        void UploadAsync(string clientFilePath, string serverFilePath); 
+        void UploadAsync(string clientFilePath, string serverFilePath);
+        [OperationContract]
+        Task<DirectoryInformation> GetFolderStructure(string directoryPath);
+
+
+        void OpenFile(string filepath, string arguments);
+        void RemoveFiles(string[] filepath);
+        void RenameFile(string filepath, string newName);
+        void MoveFile(string filepath, string newPath);
+
+        void OpenFolder(string Folderpath);
+        void RemoveFolders(string[] Folderpath);
+        void RenameFolder(string Folderpath, string newName);
+        void MoveFolder(string Folderpath, string newPath);
     }
 
     [ServiceContract]

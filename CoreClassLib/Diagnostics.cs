@@ -10,11 +10,13 @@ namespace KynetLib
     {
         public static void WriteError(Exception ex)
         {
-            Console.WriteLine("{0:HH:mm:ss tt}: {1}", DateTime.Now, ex.Message);
+            Console.WriteLine("{0:HH:mm:ss tt}: {1}", DateTime.UtcNow, ex.Message);
         }
         public static void WriteLog(string message)
         {
-            Console.WriteLine("{0:HH:mm:ss tt}: {1}", DateTime.Now, message);
+            Console.WriteLine("{0:HH:mm:ss tt}: {1}", DateTime.UtcNow, message);
         }
+
+        
     }
 }

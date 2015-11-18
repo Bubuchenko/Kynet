@@ -10,7 +10,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.Devices;
 
 
-namespace KynetLib
+namespace KynetClient
 {
     public class Inspector
     {
@@ -110,12 +110,14 @@ namespace KynetLib
             return Environment.Is64BitOperatingSystem;
         }
 
-        public static string GetFingerprint()
+        public static string GetCPUID()
         {
-            string username = Environment.UserName.Replace(" ", "");
-            string key1 = new ManagementObjectSearcher("SELECT VolumeSerialNumber FROM win32_logicaldisk").Get().Cast<ManagementObject>().FirstOrDefault().GetPropertyValue("VolumeSerialNumber").ToString();
-            string key2 = new ManagementObjectSearcher("SELECT processorID FROM Win32_Processor").Get().Cast<ManagementObject>().FirstOrDefault().GetPropertyValue("processorID").ToString();
-            return string.Format("{0}-{1}{2}", username, key1, key2);
+            return new ManagementObjectSearcher("SELECT processorID FROM Win32_Processor").Get().Cast<ManagementObject>().FirstOrDefault().GetPropertyValue("processorID").ToString();
+        }
+
+        public static string GetDriveID()
+        {
+            return new ManagementObjectSearcher("SELECT VolumeSerialNumber FROM win32_logicaldisk").Get().Cast<ManagementObject>().FirstOrDefault().GetPropertyValue("VolumeSerialNumber").ToString();
         }
 
     }

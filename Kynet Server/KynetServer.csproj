@@ -56,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventManagement.cs" />
+    <Compile Include="PrivateClientData.cs" />
     <Compile Include="ContractFunctions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

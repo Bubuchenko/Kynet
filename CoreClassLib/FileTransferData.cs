@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KynetLib
 {
@@ -102,6 +103,42 @@ namespace KynetLib
         {
             Upload,
             Download
+        }
+    }
+
+    [DataContract(Namespace = "Kynet")]
+    public class DirectoryInformation
+    {
+        //File and sender info
+        [DataMember]
+        public string Fingerprint { get; set; }
+        [DataMember]
+        public string Folder { get; set; }
+        [DataMember]
+        public bool Failed = false;
+        [DataMember]
+        public List<FileData> Files { get; set; }
+        [DataMember]
+        public string[] Folders { get; set; }
+    }
+
+    [DataContract(Namespace = "Kynet")]
+    public class FileData
+    {
+        [DataMember]
+        public string Filename { get; set; }
+        [DataMember]
+        public string FileType { get; set; }
+        [DataMember]
+        public long Filesize { get; set; }
+        [DataMember]
+        public DateTime DateCreated { get; set; }
+        [DataMember]
+        public DateTime DateModified { get; set; }
+
+        public static string GetFileType(string file)
+        {
+            return MimeMapping.GetMimeMapping(file).ToString();
         }
     }
 }

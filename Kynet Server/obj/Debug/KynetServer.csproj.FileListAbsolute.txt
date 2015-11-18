@@ -1,28 +1,3 @@
-C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.exe.config
-C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.exe
-C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.pdb
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.exe.config
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.exe
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.pdb
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.exe
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\KynetServer.pdb
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\CoreClassLib.dll
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\bin\Debug\CoreClassLib.pdb
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.csprojResolveAssemblyReference.cache
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.Form1.resources
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.Properties.Resources.resources
-C:\Users\Zutto Rei\Documents\GitHub\Kynet\WCFProtoXServer\obj\Debug\KynetServer.csproj.GenerateResource.Cache
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\obj\Debug\KynetServer.csprojResolveAssemblyReference.cache
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\obj\Debug\KynetServer.Form1.resources
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\obj\Debug\KynetServer.Properties.Resources.resources
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\obj\Debug\KynetServer.csproj.GenerateResource.Cache
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\obj\Debug\KynetServer.exe
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\obj\Debug\KynetServer.pdb
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\bin\Debug\KynetServer.exe.config
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\bin\Debug\KynetServer.exe
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\bin\Debug\KynetServer.pdb
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\bin\Debug\CoreClassLib.dll
-C:\Users\Bubuchenko\Documents\GitHub\kynet\Kynet Server\bin\Debug\CoreClassLib.pdb
 C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\Kynet Server\bin\Debug\KynetServer.exe.config
 C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\Kynet Server\bin\Debug\KynetServer.exe
 C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\Kynet Server\bin\Debug\KynetServer.pdb

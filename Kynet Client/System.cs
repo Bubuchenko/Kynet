@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace KynetClient
 {
-    public class Local
+    public class System
     {
-        private static UserClient _UserInfo;
+        private static ClientSystemInfo _SystemInfo;
 
-        public static UserClient UserInfo
+        public static ClientSystemInfo SystemInfo
         {
             get
             {
-                if (_UserInfo == null)
-                    UpdateUserInfo();
+                if (_SystemInfo == null)
+                    UpdateSystemInfo();
 
-                return _UserInfo;
+                return _SystemInfo;
             }
-            set { _UserInfo = value; }
+            set { _SystemInfo = value; }
         }
 
 
-        public static void UpdateUserInfo()
+        public static void UpdateSystemInfo()
         {
-            _UserInfo = new UserClient()
+            _SystemInfo = new ClientSystemInfo()
             {
                 Username = Inspector.GetUsername(),
                 Machinename = Inspector.GetMachineName(),
@@ -39,7 +39,8 @@ namespace KynetClient
                 CPU = Inspector.GetCPU(),
                 RAM = Inspector.GetRAM(),
                 x64_Bit = Inspector.GetOSType(),
-                Fingerprint = Inspector.GetFingerprint()
+                CPUID = Inspector.GetCPUID(),
+                DRIVEID = Inspector.GetDriveID()
             };
 
         }

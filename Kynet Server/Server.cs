@@ -14,7 +14,7 @@ namespace KynetServer
         public static List<UserClient> ConnectedClients = new List<UserClient>();
         public static List<FileTransfer> FileTransfers = new List<FileTransfer>();
 
-        public ServiceHost serviceHost = 
+        public ServiceHost serviceHost =
             new ServiceHost(typeof(Server),
             new Uri(string.Format("net.tcp://{0}:{1}", "localhost", Settings.Port)));
 
@@ -27,7 +27,7 @@ namespace KynetServer
             serviceHost.AddServiceEndpoint(typeof(IFileTransferContract), fileTcpbinding, Settings.FileServiceName);
             serviceHost.AddServiceEndpoint(typeof(IContract), clientTcpBinding, Settings.ServiceName);
         }
-        
+
 
         public void Open()
         {
@@ -36,7 +36,7 @@ namespace KynetServer
                 serviceHost.Open();
                 Console.WriteLine("Successfullly opened on port {0}", Settings.Port);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Diagnostics.WriteError(ex);
             }

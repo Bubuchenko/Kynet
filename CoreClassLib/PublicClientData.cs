@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 namespace KynetLib
 {
     [DataContract(Namespace = "Kynet")]
-    public class UserClient
+    public class ClientSystemInfo
     {
         [DataMember]
         public string Username { get; set; }
@@ -21,8 +21,6 @@ namespace KynetLib
         public string Fingerprint { get; set; }
         [DataMember]
         public string Domain { get; set; }
-        [DataMember]
-        public string IPAddress { get; set; }
         [DataMember]
         public string OperatingSystem { get; set; }
         [DataMember]
@@ -52,7 +50,38 @@ namespace KynetLib
         public string DefaultBrowser { get; set; }
 
         [DataMember]
-        public ICallbackContract callback { get; set; }
+        public string CPUID { get; set; }
+        public string DRIVEID { get; set; }
+    }
+
+    [DataContract(Namespace = "Kynet")]
+    public class UserEvent
+    {
+        public UserEvent()
+        {
+            Time = DateTime.UtcNow;
+        }
+
+        [DataMember]
+        public string Fingerprint { get; set; }
+        [DataMember]
+        public string Message { get; set; }
+        [DataMember]
+        public string ExceptionMessage { get; set; }
+        [DataMember]
+        public DateTime Time { get; set; }
+        [DataMember]
+        public EventType Type { get; set; }
+    }
+
+    public enum EventType
+    {
+        FileTransferError,
+        FileBrowsingError,
+        FileActionError,
+        FolderActionError,
+        GeneralError,
+        EventNotification
     }
 
 }

@@ -18,8 +18,7 @@ namespace KynetClient
             {
                 Console.WriteLine("Enter message:");
                 string message = Console.ReadLine();
-                chadcat.channel.Message(message);
-
+                Client.channel.Message(message);
             }
         }
     }
