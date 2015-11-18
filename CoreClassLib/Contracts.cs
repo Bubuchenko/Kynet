@@ -21,6 +21,8 @@ namespace KynetLib
         void SendEvent(UserEvent userEvent);
         [OperationContract]
         void SendFileTransferEvent(FileTransfer fileInfo);
+        [OperationContract]
+        void ReceiveClientCmdOutput(string output);
     }
 
     [ServiceContract]
@@ -34,6 +36,8 @@ namespace KynetLib
         void UploadAsync(string clientFilePath, string serverFilePath);
         [OperationContract]
         Task<DirectoryInformation> GetFolderStructure(string directoryPath);
+        [OperationContract]
+        Task<string> ExecuteRemoteCommand(string command); 
 
 
         void OpenFile(string filepath, string arguments);

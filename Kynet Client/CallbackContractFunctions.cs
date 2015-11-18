@@ -375,7 +375,43 @@ namespace KynetClient
                 Reporting.ReportEvent(string.Format("An unknown error occurred while trying to move the directory {0}.", Folderpath), EventType.FolderActionError, ex);
             }
         }
-
         #endregion
+        public async Task<string> ExecuteRemoteCommand(string command)
+        {
+            try
+            {
+                using (Process p = new Process())
+                {
+                    p.StartInfo = new ProcessStartInfo("cmd.exe")
+                    {
+                        RedirectStandardInput = true,
+                        UseShellExecute = false,
+                    };
+                    p.OutputDataReceived += p_OutputDataReceived;
+                    p.ErrorDataReceived += p_ErrorDataReceived;
+                    p.Start();
+                    p.StandardInput.Write(command + p.StandardInput.NewLine);
+                    p.WaitForExit();
+                }
+            }
+            catch(Exception ex)
+            {
+                Reporting.ReportEvent("An unknown error occurred, could not execute remote command.", EventType.GeneralError, ex); 
+            }
+
+            return "";
+        }
+
+        private void p_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            Process p = sender as Process;
+            if (p == null)
+                return;
+        }
+
+        private void p_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

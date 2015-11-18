@@ -26,6 +26,10 @@ namespace KynetServer
             UserClient user = Server.ConnectedClients.Where(f => f.Fingerprint == fingerprint).FirstOrDefault();
             return await user.callback.GetFolderStructure(clientFilePath);
         }
+        public static void ReceivedClientCmdOutput()
+        {
+
+        }
 
     }
 }

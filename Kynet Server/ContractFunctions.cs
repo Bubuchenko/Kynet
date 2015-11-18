@@ -114,5 +114,10 @@ namespace KynetServer
                 fileTransferObject = fileTransfer;
             }
         }
+
+        public void ReceiveClientCmdOutput(string output)
+        {
+
+        }
     }
 }

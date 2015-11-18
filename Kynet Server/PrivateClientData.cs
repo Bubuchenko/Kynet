@@ -32,5 +32,6 @@ namespace KynetServer
         }
         public ICallbackContract callback { get; set; }
         public BindingList<UserEvent> Events = new BindingList<UserEvent>();
+        public BindingList<string> CmdOutput = new BindingList<string>(); //backroom
     }
 }
