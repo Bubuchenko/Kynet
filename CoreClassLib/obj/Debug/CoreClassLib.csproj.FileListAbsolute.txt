@@ -1,4 +1,0 @@
-C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\CoreClassLib\bin\Debug\CoreClassLib.dll
-C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\CoreClassLib\bin\Debug\CoreClassLib.pdb
-C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\CoreClassLib\obj\Debug\CoreClassLib.dll
-C:\Users\Bubu Kirichenko\Documents\GitHub\Kynet\CoreClassLib\obj\Debug\CoreClassLib.pdb
