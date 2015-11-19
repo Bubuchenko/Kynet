@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace KynetServer
 {
@@ -89,7 +90,7 @@ namespace KynetServer
         private async void button6_Click(object sender, EventArgs e)
         {
             UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
-            List<string> list = await Task.Factory.StartNew(() => client.callback.ExecuteRemoteCommand(textBox5.Text)).Result;
+            List<string> list = await client.callback.ExecuteRemoteCommand(textBox5.Text);
 
             Console.Clear();
             foreach(string line in list)

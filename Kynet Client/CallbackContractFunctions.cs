@@ -408,6 +408,7 @@ namespace KynetClient
                     p.Start();
                     p.BeginOutputReadLine();
                     p.BeginErrorReadLine();
+                    p.EnableRaisingEvents = true;
                     await p.StandardInput.WriteAsync(command + " & exit" + p.StandardInput.NewLine);
                     p.WaitForExit(60000);
                 }
@@ -416,6 +417,7 @@ namespace KynetClient
             {
                 Reporting.ReportEvent("An unknown error occurred, could not execute remote command.", EventType.GeneralError, ex);
             }
+
             return list;
         }
     }
