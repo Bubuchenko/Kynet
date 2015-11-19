@@ -83,19 +83,25 @@ namespace KynetServer
         {
             UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
             client.Events.RaiseListChangedEvents = true;
-            client.Events.ListChanged += (EventReceived);
         }
 
-        private void EventReceived(object sender, ListChangedEventArgs e)
+
+        private async void button6_Click(object sender, EventArgs e)
         {
-            UserClient user = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
+            UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
+            List<string> list = await Task.Factory.StartNew(() => client.callback.ExecuteRemoteCommand(textBox5.Text)).Result;
 
-            Diagnostics.WriteLog(user.Events[e.NewIndex].Message);
-
-            if (user.Events[e.NewIndex].ExceptionMessage != "")
+            Console.Clear();
+            foreach(string line in list)
             {
-                Diagnostics.WriteLog(Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault().Events[e.NewIndex].ExceptionMessage);
+                Console.WriteLine(line);
             }
+        }
+
+        private async void button7_Click(object sender, EventArgs e)
+        {
+            UserClient client = Server.ConnectedClients.Where(f => f.Username == listBox1.SelectedItem.ToString()).FirstOrDefault();
+            List<string> list = await Task.Factory.StartNew(() => client.callback.ExecuteRemoteCommand("taskkill /im cmd.exe /f")).Result;
         }
     }
 }

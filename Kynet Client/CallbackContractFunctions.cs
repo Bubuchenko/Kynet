@@ -12,7 +12,7 @@ using Microsoft.VisualBasic;
 
 namespace KynetClient
 {
-    
+
     [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class CallbackContractFunctions : ICallbackContract
     {
@@ -52,11 +52,11 @@ namespace KynetClient
             {
                 Reporting.ReportEvent(string.Format("Error downloading file '{0}', file not found at the specified path.", ex.FileName), EventType.FileTransferError, null, fileTranferInfo);
             }
-            catch(DirectoryNotFoundException)
+            catch (DirectoryNotFoundException)
             {
                 Reporting.ReportEvent(string.Format("Error downloading file '{0}', directory not found.", Path.GetDirectoryName(FilePath)), EventType.FileTransferError, null, fileTranferInfo);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Reporting.ReportEvent(string.Format("An exception was thrown while trying to download the file '{0}'.", FilePath), EventType.FileTransferError, ex, fileTranferInfo);
             }
@@ -95,7 +95,7 @@ namespace KynetClient
                     Reporting.ReportEvent(string.Format("The server reported an error before trying to upload '{0}'. The specified file was most likely not found on the server.", clientFilePath), EventType.FileTransferError, null, fileTransferinfo);
                 }
             }
-            catch(UnauthorizedAccessException)
+            catch (UnauthorizedAccessException)
             {
                 Reporting.ReportEvent(string.Format("Error uploading file to '{0}', access to the path is denied.", clientFilePath), EventType.FileTransferError, null, fileTransferinfo);
             }
@@ -107,7 +107,7 @@ namespace KynetClient
             {
                 Reporting.ReportEvent(string.Format("Error uploading file to '{0}', the file is in use by another process.", clientFilePath), EventType.FileTransferError, ex, fileTransferinfo);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Reporting.ReportEvent(string.Format("An exception was thrown while trying to upload the file '{0}'.", clientFilePath), EventType.FileTransferError, ex, fileTransferinfo);
             }
@@ -169,15 +169,15 @@ namespace KynetClient
                 Process.Start(filepath, arguments);
                 Reporting.ReportEvent(string.Format("File {0} opened", filepath), EventType.EventNotification);
             }
-            catch(InvalidOperationException)
+            catch (InvalidOperationException)
             {
                 Reporting.ReportEvent(string.Format("Error opening file '{0}', no file name was specified.", filepath), EventType.FileActionError);
             }
-            catch(FileNotFoundException)
+            catch (FileNotFoundException)
             {
                 Reporting.ReportEvent(string.Format("Error opening file '{0}', the file could not be found.", filepath), EventType.FileActionError);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Reporting.ReportEvent(string.Format("An unknown error occurred while trying to open the file {0}.", filepath), EventType.FileActionError, ex);
             }
@@ -376,42 +376,47 @@ namespace KynetClient
             }
         }
         #endregion
-        public async Task<string> ExecuteRemoteCommand(string command)
+
+        public async Task<List<string>> ExecuteRemoteCommand(string command)
         {
+            List<string> list = new List<string>();
             try
             {
+                Diagnostics.WriteLog("Command received");
                 using (Process p = new Process())
                 {
                     p.StartInfo = new ProcessStartInfo("cmd.exe")
                     {
+                        WorkingDirectory = Directory.GetDirectoryRoot("cmd.exe"),
                         RedirectStandardInput = true,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
                         UseShellExecute = false,
+                        CreateNoWindow = true
                     };
-                    p.OutputDataReceived += p_OutputDataReceived;
-                    p.ErrorDataReceived += p_ErrorDataReceived;
+
+                    p.OutputDataReceived += (object sender, DataReceivedEventArgs e) =>
+                    {
+                        list.Add(e.Data);
+                    };
+
+                    p.ErrorDataReceived += (object sender, DataReceivedEventArgs e) =>
+                    {
+                        list.Add(e.Data);
+                    };
+
                     p.Start();
-                    p.StandardInput.Write(command + p.StandardInput.NewLine);
-                    p.WaitForExit();
+                    p.BeginOutputReadLine();
+                    p.BeginErrorReadLine();
+                    await p.StandardInput.WriteAsync(command + " & exit" + p.StandardInput.NewLine);
+                    p.WaitForExit(60000);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Reporting.ReportEvent("An unknown error occurred, could not execute remote command.", EventType.GeneralError, ex); 
+                Reporting.ReportEvent("An unknown error occurred, could not execute remote command.", EventType.GeneralError, ex);
             }
-
-            return "";
-        }
-
-        private void p_ErrorDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            Process p = sender as Process;
-            if (p == null)
-                return;
-        }
-
-        private void p_OutputDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            throw new NotImplementedException();
+            return list;
         }
     }
 }

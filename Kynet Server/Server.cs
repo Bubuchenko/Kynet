@@ -24,6 +24,7 @@ namespace KynetServer
             NetTcpBinding fileTcpbinding = new NetTcpBinding(SecurityMode.None);
             Settings.SetConfigs(fileTcpbinding, clientTcpBinding);
 
+
             serviceHost.AddServiceEndpoint(typeof(IFileTransferContract), fileTcpbinding, Settings.FileServiceName);
             serviceHost.AddServiceEndpoint(typeof(IContract), clientTcpBinding, Settings.ServiceName);
         }

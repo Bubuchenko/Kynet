@@ -1,0 +1,93 @@
+body {
+    background-color: #212121;
+    background-image: url("Kynet_login_website_background.png");
+    
+    background-size: cover;
+    
+}
+
+#logo {
+    text-shadow: 1px 1px 5px #000000;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    text-align: center;
+    letter-spacing: -5;
+    margin-top: 7em;
+}
+
+#ky {
+    font-family: "Roboto Medium";
+    color: #2679b5;
+    font-size: 9em;
+    cursor: pointer;
+}
+
+#net {
+    font-family: "Roboto Thin";
+    color: #ffffff;
+    font-size: 9em;
+    cursor: pointer;
+}
+
+#logintile {
+    margin: auto;
+    width: 22em;
+    background-color: #303030;
+    box-shadow: 1px 1px 5px #000000;
+    text-align: center;
+}
+
+#logintitle {
+    background-color: #2679b5; 
+    font-family: "Roboto Light";
+    font-size: 1.5em;
+    font-weight: 500;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    
+}
+
+.logintextfield {
+    font-size: 95%;
+    -webkit-appearance: textfield;
+    -webkit-user-select: text;
+    font-family: 'Open Sans',sans-serif;
+    border: 0px;
+    display: inline-block;
+    margin: auto;
+    width: 92%;
+    background-color: rgb(250, 255, 189);
+    margin: auto;
+    padding: 4%;
+    margin-top: 15px;
+    color: rgb(0, 0, 0);
+    
+}
+
+#loginbutton {
+    width: 95%;
+    background: #309ded;
+    border: 0px;
+    padding: 4%;
+    margin: 5% 0px 2% 0px; 0;
+    font-family: "Roboto Light";
+    font-size: 100%;
+    color: #fff;
+    cursor: pointer;
+    transition: background .3s;
+    transition-property: background;
+    transition-duration: 0.3s;
+    transition-timing-function: initial;
+    transition-delay: initial;
+}
+
+#extra {
+    font-family: "Roboto Light";
+    color: #fff;
+    margin: 0 auto;
+    padding: 5px 0px 10px 0px;
+    width: 304px;
+}
+

@@ -29,8 +29,6 @@ namespace KynetClient
                    clientTcpBinding,
                    new EndpointAddress(string.Format("net.tcp://{0}:{1}/{2}", Settings.Address, Settings.Port, Settings.ServiceName)));
 
-               
-
                 FileserviceClient = new ChannelFactory<IFileTransferContract>(
                    fileTcpbinding,
                    new EndpointAddress(string.Format("net.tcp://{0}:{1}/{2}", Settings.Address, Settings.Port, Settings.FileServiceName)));

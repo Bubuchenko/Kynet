@@ -18,7 +18,7 @@ namespace KynetLib
         //Endpoint settings
         public static int MaxBufferSize = int.MaxValue;
         public static int MaxReceivedMessageSize = int.MaxValue;
-        public static TimeSpan SendTimeout = TimeSpan.FromSeconds(60);
+        public static TimeSpan SendTimeout = TimeSpan.FromSeconds(600);
         public static TimeSpan ReceiveTimeout = TimeSpan.MaxValue;
         public static TimeSpan CloseTimeout = TimeSpan.FromSeconds(30);
         public static int MaxConnections = 10;
@@ -42,6 +42,13 @@ namespace KynetLib
             clientTcpBinding.OpenTimeout = OpenTimeout;
             clientTcpBinding.ReceiveTimeout = ReceiveTimeout;
             clientTcpBinding.SendTimeout = SendTimeout;
+
+            OptionalReliableSession reliableObject = new OptionalReliableSession();
+            reliableObject.Ordered = true;
+            reliableObject.Enabled = true;
+
+            clientTcpBinding.ReliableSession = reliableObject;
+            
         }
     }
 }

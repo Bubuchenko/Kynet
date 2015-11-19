@@ -48,11 +48,14 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -244,14 +247,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(651, 149);
             this.dataGridView2.TabIndex = 10;
             // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(314, 134);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(434, 22);
-            this.textBox4.TabIndex = 11;
-            // 
             // Column10
             // 
             this.Column10.HeaderText = "Name";
@@ -272,12 +267,50 @@
             this.Column13.HeaderText = "FileType";
             this.Column13.Name = "Column13";
             // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(314, 134);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(434, 22);
+            this.textBox4.TabIndex = 11;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(701, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(101, 44);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "Send command";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(314, 25);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(381, 20);
+            this.textBox5.TabIndex = 13;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(811, 12);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(101, 44);
+            this.button7.TabIndex = 14;
+            this.button7.Text = "Cancel";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1021, 587);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button5);
@@ -326,6 +359,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button7;
     }
 }
 

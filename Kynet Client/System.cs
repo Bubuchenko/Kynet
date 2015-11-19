@@ -23,7 +23,6 @@ namespace KynetClient
             set { _SystemInfo = value; }
         }
 
-
         public static void UpdateSystemInfo()
         {
             _SystemInfo = new ClientSystemInfo()
@@ -42,7 +41,6 @@ namespace KynetClient
                 CPUID = Inspector.GetCPUID(),
                 DRIVEID = Inspector.GetDriveID()
             };
-
         }
     }
 }
