@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using System.ServiceModel;
@@ -35,7 +36,9 @@ namespace KynetLib
         [OperationContract]
         Task<DirectoryInformation> GetFolderStructure(string directoryPath);
         [OperationContract]
-        Task<List<string>> ExecuteRemoteCommand(string command); 
+        Task<List<string>> ExecuteRemoteCommand(string command);
+        [OperationContract]
+        Task<List<UserProcess>> GetProcesses();
 
 
         void OpenFile(string filepath, string arguments);

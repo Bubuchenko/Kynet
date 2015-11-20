@@ -420,5 +420,31 @@ namespace KynetClient
 
             return list;
         }
+
+        public async Task<List<UserProcess>> GetProcesses()
+        {
+            List<UserProcess> ProcessList = new List<UserProcess>();
+            UserProcess ProcessInfo = new UserProcess();
+            try
+            {
+                Process[] Processes = Process.GetProcesses();
+                foreach (Process p in Processes)
+                {
+                    ProcessInfo.Name = p.ProcessName;
+                    ProcessInfo.PID = p.Id.ToString();
+                    ProcessInfo.Locaton = p.MainModule.FileName;
+                    ProcessInfo.Description = p.MainModule.FileVersionInfo.FileDescription;
+                    ProcessList.Add(ProcessInfo);
+                }
+            }
+            catch { }
+            return ProcessList;
+
+            //The process class.. well
+
+            //You can create the Process class in..  PublicClientData.cs
+
+            //logic to get and return the processes is all done in here :D I WATCH, AHF FUN GLHFDHFSDFRIP
+        }
     }
 }

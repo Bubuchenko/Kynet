@@ -83,5 +83,22 @@ namespace KynetLib
         GeneralError,
         EventNotification
     }
+    [DataContract(Namespace = "Kynet")]
+    public class UserProcess
+    {
+        [DataMember]
+        public string Name { get; set; }
+        [DataMember]
+        public string PID { get; set; }
+        [DataMember]
+        public string FileName { get; set; }
+        [DataMember]
+        public string Locaton { get; set; }
+        [DataMember]
+        public string Description { get; set; }
+
+
+    }
+    
 
 }
