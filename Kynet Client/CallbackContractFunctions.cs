@@ -439,12 +439,6 @@ namespace KynetClient
             }
             catch { }
             return ProcessList;
-
-            //The process class.. well
-
-            //You can create the Process class in..  PublicClientData.cs
-
-            //logic to get and return the processes is all done in here :D I WATCH, AHF FUN GLHFDHFSDFRIP
         }
     }
 }
