@@ -25,6 +25,7 @@ namespace KynetServer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            WebAPI.StartWebServer();
             Server server = new Server();
             server.Open();
         }

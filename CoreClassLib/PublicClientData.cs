@@ -16,15 +16,13 @@ namespace KynetLib
         [DataMember]
         public string Machinename { get; set; }
         [DataMember]
-        public string SessionID { get; set; }
-        [DataMember]
         public string Fingerprint { get; set; }
         [DataMember]
         public string Domain { get; set; }
         [DataMember]
         public string OperatingSystem { get; set; }
         [DataMember]
-        public string Country { get; set; }
+        public string SystemLocale { get; set; }
 
         [DataMember]
         public string SystemType { get; set; }
@@ -84,6 +82,7 @@ namespace KynetLib
         EventNotification
     }
     [DataContract(Namespace = "Kynet")]
+
     public class UserProcess
     {
         [DataMember]
@@ -96,9 +95,5 @@ namespace KynetLib
         public string Locaton { get; set; }
         [DataMember]
         public string Description { get; set; }
-
-
     }
-    
-
 }

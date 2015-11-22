@@ -31,7 +31,7 @@ namespace KynetClient
                 Machinename = Inspector.GetMachineName(),
                 Domain = Inspector.GetDomain(),
                 OperatingSystem = Inspector.GetOperatingSystem(),
-                Country = Inspector.GetCountry(),
+                SystemLocale = Inspector.GetCountry(),
                 SystemType = Inspector.GetSystemType(),
                 MonitorCount = Inspector.GetMonitorCount(),
                 GPU = Inspector.GetGPU(),

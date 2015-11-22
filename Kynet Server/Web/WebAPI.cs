@@ -1,11 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
+using System.Xml;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.ComponentModel;
+using KynetLib;
+using System.Reflection;
+using KynetServer.Web;
+using System.Web;
+using System.Collections.Specialized;
 
 namespace KynetServer
 {
@@ -17,17 +29,15 @@ namespace KynetServer
         public WebServer(string[] prefixes, Func<HttpListenerContext, string> method)
         {
             if (!HttpListener.IsSupported)
-                throw new NotSupportedException(
-                    "Needs Windows XP SP2, Server 2003 or later.");
+                throw new NotSupportedException("This framework version does not support the HttpListener.");
 
-            // URI prefixes are required, for example 
-            // "http://localhost:8080/index/".
+            // URI prefixes are required
             if (prefixes == null || prefixes.Length == 0)
-                throw new ArgumentException("prefixes");
+                throw new ArgumentException("Insufficient prefixes");
 
             // A responder method is required
             if (method == null)
-                throw new ArgumentException("method");
+                throw new ArgumentException("Method required");
 
             foreach (string s in prefixes)
                 _listener.Prefixes.Add(s);
@@ -78,17 +88,55 @@ namespace KynetServer
         }
     }
 
-    class WebAPI
+    public class WebAPI
     {
-        public void StartWebServer()
+        public static void StartWebServer()
         {
-            HttpListener listener = new HttpListener();
-            listener.Prefixes.Add("");
+            WebServer webServer = new WebServer(ProcessRequest, "http://*:20524/");
+            webServer.Run();
         }
 
-        public static string SendResponse(HttpListenerContext request)
+        public static string ProcessRequest(HttpListenerContext ctx)
         {
-            return string.Format("<HTML><BODY>My web page.<br>{0}</BODY></HTML>", DateTime.Now);
+            string functionName = ctx.Request.Url.Segments[1].Replace("/", "");
+            Uri uri = ctx.Request.Url;
+
+            switch (functionName)
+            {
+                case "getallusers":
+                    return GetAllUsers();
+                case "getuser":
+                    return GetUser(uri);
+                case "searchusers":
+                    return SearchUsers(ctx.Request);
+                default:
+                    return "Nothing";
+            }
+        }
+
+        public static string GetAllUsers()
+        {
+            return JsonConvert.SerializeObject(Server.ConnectedClients);
+        }
+        public static string GetUser(Uri uri)
+        {
+            string fingerprint = HttpUtility.ParseQueryString(uri.Query).Get("fingerprint");
+            return JsonConvert.SerializeObject(Server.ConnectedClients.Where(f => f.Fingerprint == fingerprint));
+        }
+        public static string SearchUsers(HttpListenerRequest request)
+        {
+            List<UserClient> foundClients = new List<UserClient>();
+
+            string key = request.QueryString.AllKeys[0];
+            string value = request.QueryString[key];
+
+            //Server.ConnectedClients.Where(f => nameof(f) == key)
+            //  Response.Write("Key: " + key + " Value: " + Request.QueryString[key]);
+
+            //Server.ConnectedClients.FindAll
+
+            return "Not implemented.";
         }
     }
+
 }

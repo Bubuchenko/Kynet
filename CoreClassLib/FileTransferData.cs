@@ -135,7 +135,6 @@ namespace KynetLib
         public DateTime DateCreated { get; set; }
         [DataMember]
         public DateTime DateModified { get; set; }
-
         public static string GetFileType(string file)
         {
             return MimeMapping.GetMimeMapping(file).ToString();

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using KynetLib;
 using System.Diagnostics;
 using System.Threading;
+using KynetServer.Web;
 
 namespace KynetServer
 {
@@ -32,7 +33,14 @@ namespace KynetServer
             Console.WriteLine("Client connected from {0}", client.IPAddress);
             Form1.form.listBox1.Items.Add(client.System.Username);
 
+            SetCountryInfo(client);
+
             return client.Fingerprint;
+        }
+
+        private async void SetCountryInfo(UserClient client)
+        {
+            client.CountryInfo = await Task.Run(() => ServerToClientFunctions.GetCountryInfo(client.IPAddress));
         }
 
         public bool Disconnect()

@@ -5,12 +5,14 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using KynetLib;
+using System.Xml.Serialization;
 
 namespace KynetServer
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Multiple, IncludeExceptionDetailInFaults = true)]
     class Server : ContractFunctions
     {
+        [XmlArray("Userlist"), XmlArrayItem(typeof(UserClient), ElementName = "UserClient")]
         public static List<UserClient> ConnectedClients = new List<UserClient>();
         public static List<FileTransfer> FileTransfers = new List<FileTransfer>();
 

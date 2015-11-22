@@ -1,9 +1,7 @@
 body {
     background-color: #212121;
-    background-image: url("Kynet_login_website_background.png");
-    
+    background-image: url("/images/Kynet_login_website_background.png");
     background-size: cover;
-    
 }
 
 #logo {
@@ -17,14 +15,16 @@ body {
 }
 
 #ky {
-    font-family: "Roboto Medium";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
     color: #2679b5;
     font-size: 9em;
     cursor: pointer;
 }
 
 #net {
-    font-family: "Roboto Thin";
+    font-family: 'Roboto';
+    font-weight: 100;
     color: #ffffff;
     font-size: 9em;
     cursor: pointer;
@@ -40,9 +40,9 @@ body {
 
 #logintitle {
     background-color: #2679b5; 
-    font-family: "Roboto Light";
+    font-family: "Roboto";
+    font-weight: 300;
     font-size: 1.5em;
-    font-weight: 500;
     padding: 20px 0;
     text-align: center;
     color: white;
@@ -53,7 +53,8 @@ body {
     font-size: 95%;
     -webkit-appearance: textfield;
     -webkit-user-select: text;
-    font-family: 'Open Sans',sans-serif;
+    font-family: "Roboto";
+    font-weight: 300;
     border: 0px;
     display: inline-block;
     margin: auto;
@@ -72,7 +73,8 @@ body {
     border: 0px;
     padding: 4%;
     margin: 5% 0px 2% 0px; 0;
-    font-family: "Roboto Light";
+    font-family: 'Roboto';
+    font-weight: 300;
     font-size: 100%;
     color: #fff;
     cursor: pointer;
@@ -84,7 +86,8 @@ body {
 }
 
 #extra {
-    font-family: "Roboto Light";
+    font-family: "Roboto";
+    font-weight: 300;
     color: #fff;
     margin: 0 auto;
     padding: 5px 0px 10px 0px;
