@@ -425,20 +425,23 @@ namespace KynetClient
         {
             List<UserProcess> ProcessList = new List<UserProcess>();
             UserProcess ProcessInfo = new UserProcess();
-            try
+
             {
                 Process[] Processes = Process.GetProcesses();
                 foreach (Process p in Processes)
                 {
-                    ProcessInfo.Name = p.ProcessName;
-                    ProcessInfo.PID = p.Id.ToString();
-                    ProcessInfo.Locaton = p.MainModule.FileName;
-                    ProcessInfo.Description = p.MainModule.FileVersionInfo.FileDescription;
-                    ProcessList.Add(ProcessInfo);
+                    try
+                    {
+                        ProcessInfo.Name = p.ProcessName;
+                        ProcessInfo.PID = p.Id.ToString();
+                        ProcessInfo.Locaton = p.MainModule.FileName;
+                        ProcessInfo.Description = p.MainModule.FileVersionInfo.FileDescription;
+                        ProcessList.Add(ProcessInfo);
+                    }
+                    catch { }
                 }
+                return ProcessList;
             }
-            catch { }
-            return ProcessList;
         }
     }
 }
