@@ -45,7 +45,7 @@
 	display: block;
     font-weight: bold;
 	text-decoration: none;
-	margin: 0 auto 5px auto;
+	margin: 0 auto 1px auto;
 	padding: 10px 0 10px 5px;
 	background-color: #35393e;
 	text-align: left;
@@ -54,13 +54,21 @@
 	line-height: 2;
 	border-left-width: 3px;
 	border-left-style: solid;
+    
+    transition: background-color .2s ease-in-out, border-left-width 0.1s ease-in-out;
+    
+
+}
+
+.sidebar-links div > a:hover {
+    background: #484D54;
+    border-left-width: 10px;
 }
 
 .sidebar-links div.selected > a{
 	background-color: #212121;
-    border-left-width: 5px;
+    border-left-width: 10px;
     border-left-style: solid;
-    border-left-color: red;
 }
 
 .sidebar-links div > a i.fa {
