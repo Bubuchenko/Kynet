@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Kynet</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="static/controlpanel/assets/scripts.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,100,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <link href='https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="static/controlpanel/assets/style.css">
+    
+
+</head>
+
+<body>
+
+	<aside class="sidebar-left dropshadow">
+        
+        <div id="logo"><p><span id="ky">KY</span><span id="net">NET</span></p></div>
+        
+		<div id="userinfo"><a href="#" class="user-avatar"></a> <p>Administrator</p></div>
+        
+		<div class="sidebar-links">
+
+            <hr>
+            <p>NAVIGATION</p>
+			<div class="link-blue">
+				<a href="#">
+					<i class="fa fa-fort-awesome"></i>Dashboard
+				</a>
+			</div>
+            
+            <div class="link-blue">
+				<a href="#">
+					<i class="fa fa-users"></i>Users
+				</a>
+			</div>
+            
+            <div class="link-blue">
+				<a href="#">
+					<i class="fa fa-file"></i>File transfers
+				</a>
+			</div>
+            
+            <div class="link-blue">
+				<a href="#">
+					<i class="fa fa-bolt"></i>Event tracker
+				</a>
+			</div>
+            
+            <div class="link-blue">
+				<a href="#">
+					<i class="fa fa-wrench"></i>Server settings
+				</a>
+			</div>
+
+		</div>
+
+	</aside>
+
+	<div class="main-content">
+
+        <div class="dropshadow" id="usercontainer">
+		<div class="menu">
+            <table id="usertable" class="dataTable hover">
+            <button>Reload <i class="fa fa-refresh"></i></button> 
+                <p id="lastUpdate">Last update 12/6/215 12:42 AM</p>
+                <thead>
+                    <th>Username</th>
+                    <th>Machine Name</th>
+                    <th>Country</th>
+                    <th>System Type</th>
+                    <th>Operating System</th>
+                    <th>Active Window</th>
+                    <th>Active</th>
+                    <th>Uptime</th>
+                    <th>Member Since</th>
+                    <th class="hiddencolumn">Fingerprint</th>
+                    <th class="hiddencolumn">Fingerprint</th>
+                    <th class="hiddencolumn">Fingerprint</th>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Bubuchenko </td>
+                    <td>BubuPC </td>
+                    <td>Netherlands </td>
+                    <td>Desktop </td>
+                    <td>Windows 10 Pro </td>
+                    <td>Chrome - Kynet</td>
+                    <td>Active</td>
+                    <td>2 minutes 12 seconds</td>
+                    <td>12 December 2015 11:41 PM</td>
+                    <td class="hiddencolumn">cheese</td>
+                    </tr>
+                    <tr>
+                    <td>Bubuchenko </td>
+                    <td>BubuPC </td>
+                    <td>Netherlands </td>
+                    <td>Desktop </td>
+                    <td>Windows 10 Pro </td>
+                    <td>Visual Studio 2015 - Console Application 12</td>
+                    <td>3 minutes ago</td>
+                    <td>6 hours 41 minutes 6 seconds</td>
+                    <td>13 December 2015 11:41 PM</td>
+                    <td class="hiddencolumn">patat</td>
+                    </tr>
+                </tbody>
+            </table>
+		</div>
+        </div>
+	</div>
+</body>
+</html>
+
